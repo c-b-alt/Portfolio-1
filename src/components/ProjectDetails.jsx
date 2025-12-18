@@ -1,15 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import './ProjectDetails.css';
 
 const ProjectDetails = () => {
     const { id } = useParams();
+    const [selectedImage, setSelectedImage] = useState(null);
     const project = projectsData.find(p => p.id === parseInt(id));
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const openLightbox = (image) => {
+        setSelectedImage(image);
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    };
+
+    const closeLightbox = () => {
+        setSelectedImage(null);
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
 
     if (!project) {
         return (
@@ -65,7 +76,6 @@ const ProjectDetails = () => {
                             </a>
                         ) : (
                             <div className="project-offline">
-                                <p>Le site n'est actuellement pas en ligne.</p>
                             </div>
                         )}
                     </div>
@@ -75,7 +85,11 @@ const ProjectDetails = () => {
                             <h3>Aperçu</h3>
                             <div className="gallery-grid">
                                 {project.gallery.map((img, index) => (
-                                    <div key={index} className="gallery-item">
+                                    <div
+                                        key={index}
+                                        className="gallery-item"
+                                        onClick={() => openLightbox(img)}
+                                    >
                                         <img src={img} alt={`Aperçu ${project.title} ${index + 1}`} />
                                     </div>
                                 ))}
@@ -84,6 +98,15 @@ const ProjectDetails = () => {
                     )}
                 </div>
             </div>
+
+            {selectedImage && (
+                <div className="lightbox-overlay" onClick={closeLightbox}>
+                    <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="lightbox-close" onClick={closeLightbox}>&times;</button>
+                        <img src={selectedImage} alt="Full view" className="lightbox-image" />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

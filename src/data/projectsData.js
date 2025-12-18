@@ -9,8 +9,14 @@ import BlogeniaImg from "../assets/Blogenia.png";
 import SolarcapImg from "../assets/Chapeau.png";
 import LARQImg from "../assets/LARQ.png";
 import SQLImg from "../assets/SQL.png";
-import BDDImg from "../assets/BDD.png";
 import BDDLoginImg from "../assets/BDD_Login.png";
+import BDD1Img from "../assets/BDD1.png";
+import BDD2Img from "../assets/BDD2.png";
+import BDD3Img from "../assets/BDD3.png";
+import BDD4Img from "../assets/BDD4.png";
+import BDD5Img from "../assets/BDD5.png";
+import BDD6Img from "../assets/BDD6.png";
+
 export const projectsData = [
     {
         id: 1,
@@ -90,9 +96,9 @@ export const projectsData = [
         description: "Création d'un outils interne dédié à l'école pour gérer le des ambassadeurs de l'école.",
         stack: ["Cursor", "Github", "Notion"],
         role: "Business Deep Dive",
-        image: `url(${BDDImg})`,
+        image: `url(${BDD1Img})`,
         link: "#",
-        gallery: [BDDLoginImg]
+        gallery: [BDDLoginImg, BDD1Img, BDD2Img, BDD3Img, BDD4Img, BDD5Img, BDD6Img]
     },
     {
         id: 10,
