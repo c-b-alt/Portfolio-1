@@ -128,3 +128,14 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}

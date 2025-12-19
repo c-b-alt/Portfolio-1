@@ -60,3 +60,25 @@
     background: var(--text-primary);
     color: var(--bg-color) !important;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+}
